@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, MapPin, Phone, MessageCircle, Instagram, Facebook, Twitter } from 'lucide-react';
 import { CONTACT_INFO, NAV_LINKS } from '../constants';
+import LegalModal from './LegalModal';
 
 const Footer = () => {
+  const [legalModal, setLegalModal] = useState<{ isOpen: boolean; type: 'privacy' | 'terms' }>({
+    isOpen: false,
+    type: 'privacy'
+  });
+
+  const openLegal = (e: React.MouseEvent, type: 'privacy' | 'terms') => {
+    e.preventDefault();
+    setLegalModal({ isOpen: true, type });
+  };
+
   return (
     <footer id="contact" className="bg-brand-dark border-t border-white/5 text-white pt-20 pb-10 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
@@ -103,11 +114,27 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex gap-6 text-slate-500 text-[10px] font-bold uppercase tracking-widest shrink-0">
-            <a href="#" className="hover:text-brand-accent transition-colors">سياسة الخصوصية</a>
-            <a href="#" className="hover:text-white transition-colors">الشروط والأحكام</a>
+            <button 
+              onClick={(e) => openLegal(e, 'privacy')}
+              className="hover:text-brand-accent transition-colors"
+            >
+              سياسة الخصوصية
+            </button>
+            <button 
+              onClick={(e) => openLegal(e, 'terms')}
+              className="hover:text-white transition-colors"
+            >
+              الشروط والأحكام
+            </button>
           </div>
         </div>
       </div>
+
+      <LegalModal 
+        isOpen={legalModal.isOpen} 
+        onClose={() => setLegalModal({ ...legalModal, isOpen: false })} 
+        type={legalModal.type} 
+      />
     </footer>
   );
 };
