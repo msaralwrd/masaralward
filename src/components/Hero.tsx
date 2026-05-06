@@ -46,6 +46,11 @@ const Hero = () => {
                 href={`https://wa.me/${CONTACT_INFO.whatsapp}`}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => {
+                  if (typeof window.gtag_report_conversion === 'function') {
+                    window.gtag_report_conversion();
+                  }
+                }}
                 className="bg-brand-primary text-slate-950 px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(20,184,166,0.3)] text-base md:text-lg hover:bg-brand-accent transition-all"
               >
                 <MessageCircle size={24} />

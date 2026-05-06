@@ -94,7 +94,15 @@ const Footer = () => {
             </ul>
             <div className="bg-brand-primary/10 p-5 rounded-2xl border border-brand-primary/20 shadow-well">
               <div className="text-[10px] text-brand-accent mb-2 uppercase font-black tracking-widest">لحالات الطوارئ</div>
-              <a href={`tel:${CONTACT_INFO.phone}`} className="text-white font-black text-2xl flex items-center gap-3">
+              <a 
+                href={`tel:${CONTACT_INFO.phone}`} 
+                onClick={() => {
+                  if (typeof window.gtag_report_conversion === 'function') {
+                    window.gtag_report_conversion();
+                  }
+                }}
+                className="text-white font-black text-2xl flex items-center gap-3"
+              >
                 <div className="p-2 bg-brand-primary rounded-lg text-slate-950">
                   <Phone size={18} />
                 </div>

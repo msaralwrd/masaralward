@@ -5,9 +5,11 @@ import { CONTACT_INFO } from '../constants';
 
 const FloatingActions = () => {
   const trackConversion = (type: string) => {
+    if (typeof window.gtag_report_conversion === 'function') {
+      window.gtag_report_conversion();
+    }
     if (window.gtag) {
-      window.gtag('event', 'conversion', {
-        'send_to': 'AW-CONVERSION_ID',
+      window.gtag('event', 'click', {
         'event_category': 'Contact',
         'event_label': type
       });

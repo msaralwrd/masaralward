@@ -16,6 +16,24 @@
 
       gtag('config', 'AW-18144227404');
     </script>
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+              'send_to': 'AW-18144227404/O5KGCJyj0qgcEMzg68tD',
+              'value': 1.0,
+              'currency': 'SAR',
+              'event_callback': callback
+          });
+        }
+        return false;
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
