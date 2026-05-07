@@ -85,7 +85,7 @@ export default function GermanLanding() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/30 text-red-400 px-4 py-1.5 rounded-full uppercase tracking-widest mb-8">
+                <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/30 text-red-100 px-4 py-1.5 rounded-full uppercase tracking-widest mb-8">
                   <ShieldCheck size={16} />
                   <span className="text-[11px] font-bold">قسم هندسة السيارات الألمانية</span>
                 </div>
@@ -95,7 +95,7 @@ export default function GermanLanding() {
                   <span className="text-transparent bg-clip-text bg-gradient-to-l from-red-600 via-amber-500 to-yellow-400">للسيارات الألمانية</span>
                 </h1>
                 
-                <p className="text-xl md:text-2xl text-slate-400 mb-10 leading-relaxed max-w-2xl font-medium" dir="rtl">
+                <p className="text-xl md:text-2xl text-slate-200 mb-10 leading-relaxed max-w-2xl font-medium" dir="rtl">
                   مركز متخصص ومزود بأحدث أجهزة التشخيص الأصلية لسيارات BMW و Mercedes و Audi. نحن ندرك تماماً تعقيد التكنولوجيا الألمانية ونتعامل معها باحترافية مطلقة.
                 </p>
 
@@ -124,7 +124,7 @@ export default function GermanLanding() {
           <motion.div 
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/30"
+            className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/60"
           >
             <ChevronDown size={40} />
           </motion.div>
@@ -154,7 +154,7 @@ export default function GermanLanding() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-20">
               <h2 className="text-4xl md:text-6xl font-black mb-6" dir="rtl">مركز متخصص في الصيانة الألمانية</h2>
-              <p className="text-slate-400 text-lg max-w-2xl mx-auto" dir="rtl">نقدم حلولاً صيانة شاملة للسيارات الأوروبية باستخدام أحدث التقنيات وقطع الغيار المعتمدة.</p>
+              <p className="text-slate-300 text-lg max-w-2xl mx-auto" dir="rtl">نقدم حلولاً صيانة شاملة للسيارات الأوروبية باستخدام أحدث التقنيات وقطع الغيار المعتمدة.</p>
               <div className="h-1.5 w-24 bg-red-600 mx-auto rounded-full mt-8"></div>
             </div>
 
@@ -176,7 +176,7 @@ export default function GermanLanding() {
                   </div>
                   <div className="p-8">
                     <h3 className="text-2xl font-black mb-4 group-hover:text-amber-500 transition-colors">{s.title}</h3>
-                    <p className="text-slate-400 leading-relaxed font-medium text-lg">{s.desc}</p>
+                    <p className="text-slate-300 leading-relaxed font-medium text-lg">{s.desc}</p>
                   </div>
                 </div>
               ))}

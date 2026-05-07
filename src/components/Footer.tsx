@@ -24,7 +24,7 @@ const Footer = () => {
               <div className="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center text-slate-950 font-black text-xl">M</div>
               <span className="text-2xl font-black tracking-tighter">مســـار <span className="text-brand-accent font-light italic">MASAR</span></span>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed font-medium">
+            <p className="text-slate-300 text-sm leading-relaxed font-medium">
               شريكك الموثوق في صيانة السيارات بالرياض. نجمع بين الخبرة الطويلة والتقنيات الحديثة لضمان أفضل أداء لسيارتك.
             </p>
             <div className="flex gap-4">
@@ -42,7 +42,7 @@ const Footer = () => {
             <ul className="flex flex-col gap-4">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-slate-400 hover:text-brand-accent transition-colors flex items-center gap-2 group text-sm font-bold">
+                  <a href={link.href} className="text-slate-300 hover:text-brand-accent transition-colors flex items-center gap-2 group text-sm font-bold">
                     <span className="w-0 h-0.5 bg-brand-accent transition-all group-hover:w-3"></span>
                     {link.name}
                   </a>
