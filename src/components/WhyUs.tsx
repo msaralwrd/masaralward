@@ -34,7 +34,7 @@ const WhyUs = () => {
                   </div>
                   <div>
                     <h4 className="text-lg md:text-xl font-black text-white mb-2 md:mb-3 group-hover:text-brand-accent transition-colors">{feature.title}</h4>
-                    <p className="text-slate-400 text-sm leading-relaxed">{feature.description}</p>
+                    <p className="text-slate-200 text-sm leading-relaxed">{feature.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -60,7 +60,7 @@ const WhyUs = () => {
               <motion.div 
                 animate={{ y: [0, -20, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -bottom-10 -right-10 glass p-8 rounded-3xl border border-white/20 hidden xl:block shadow-2xl"
+                className="absolute -bottom-10 -right-10 bg-slate-900 p-8 rounded-3xl border border-white/20 hidden xl:block shadow-2xl"
               >
                 <div className="flex items-center gap-6">
                   <div className="w-16 h-16 bg-brand-primary rounded-2xl flex items-center justify-center text-slate-950 shadow-[0_0_20px_rgba(20,184,166,0.5)]">

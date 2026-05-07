@@ -15,10 +15,6 @@ export default function MainLanding() {
       <div className="absolute inset-0 bg-atmosphere pointer-events-none z-0"></div>
       <div className="absolute inset-0 bg-grid pointer-events-none z-0"></div>
       
-      {/* Subtle Visual Flares */}
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-brand-primary/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
-      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-secondary/20 rounded-full blur-[100px] pointer-events-none z-0"></div>
-
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-1">

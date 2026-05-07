@@ -20,7 +20,7 @@ const Bodywork = () => {
           <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">
             السمكرة والدهان الحديث
           </h2>
-          <p className="text-slate-400 text-lg leading-relaxed">
+          <p className="text-slate-200 text-lg leading-relaxed">
             نستخدم أحدث تقنيات سحب الصدمات البارد وأفران الدهان الحرارية لضمان عودة سيارتك لحالتها الأصلية بألوان مطابقة تماماً لمواصفات المصنع.
           </p>
         </div>
@@ -43,7 +43,7 @@ const Bodywork = () => {
                     className="w-full h-[350px] object-cover transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute top-6 right-6 bg-red-500/90 backdrop-blur-md text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest">قبل</div>
+                  <div className="absolute top-6 right-6 bg-red-600 text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest">قبل</div>
                   <button 
                     onClick={() => setSelectedImage(sample.before)}
                     className="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover/item:opacity-100 transition-opacity flex items-center justify-center text-white"
@@ -66,7 +66,7 @@ const Bodywork = () => {
                     className="w-full h-[350px] object-cover transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute top-6 left-6 bg-brand-primary/90 backdrop-blur-md text-slate-950 text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest">بعد</div>
+                  <div className="absolute top-6 left-6 bg-brand-primary text-slate-950 text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest">بعد</div>
                   <button 
                     onClick={() => setSelectedImage(sample.after)}
                     className="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover/item:opacity-100 transition-opacity flex items-center justify-center text-white"
@@ -76,7 +76,7 @@ const Bodywork = () => {
                 </div>
               </div>
 
-              <div className="p-8 bg-slate-900/50 backdrop-blur-md border-t border-white/5 flex items-center justify-between">
+              <div className="p-8 bg-slate-900 border-t border-white/5 flex items-center justify-between">
                 <h3 className="text-xl font-black text-white uppercase tracking-tight">{sample.title}</h3>
                 <span className="text-brand-accent font-black text-[10px] uppercase tracking-widest flex items-center gap-1">
                   شاهد تفاصيل العمل <ChevronLeft size={16} />
@@ -95,7 +95,7 @@ const Bodywork = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-[60] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
+            className="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
           >
             <motion.img 
               initial={{ scale: 0.9 }}
@@ -106,7 +106,7 @@ const Bodywork = () => {
               referrerPolicy="no-referrer"
             />
             <button 
-              className="absolute top-8 right-8 text-white bg-white/20 p-3 rounded-full hover:bg-white/40 transition-colors"
+              className="absolute top-8 right-8 text-white bg-slate-800 p-3 rounded-full hover:bg-slate-700 transition-colors"
               onClick={() => setSelectedImage(null)}
             >
               <X size={32} />

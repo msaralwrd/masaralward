@@ -42,13 +42,13 @@ const Navbar = () => {
         >
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group cursor-pointer">
-            <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-white shadow-lg group-hover:rotate-12 transition-transform ${isGermanSite ? 'bg-blue-600 shadow-blue-500/50' : 'bg-brand-primary shadow-brand-primary/50'}`}>
+            <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-white shadow-lg group-hover:rotate-12 transition-transform ${isGermanSite ? 'bg-red-600 shadow-red-500/50' : 'bg-brand-primary shadow-brand-primary/50'}`}>
               <span className="text-xl font-black">{isGermanSite ? 'G' : 'M'}</span>
             </div>
             <div className="flex flex-col">
               <span className="text-2xl font-black tracking-tighter text-white">
                 {isGermanSite ? 'مســــار ' : 'مســــار '}
-                <span className={`${isGermanSite ? 'text-blue-400' : 'text-brand-accent'} font-light uppercase`}>
+                <span className={`${isGermanSite ? 'text-amber-500' : 'text-brand-accent'} font-light uppercase`}>
                   {isGermanSite ? 'German' : 'MASAR'}
                 </span>
               </span>
@@ -73,7 +73,7 @@ const Navbar = () => {
               className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-black uppercase tracking-tighter transition-all ${
                 isGermanSite 
                 ? 'bg-brand-primary/20 text-brand-primary border border-brand-primary/30' 
-                : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                : 'bg-red-600/20 text-red-500 border border-red-500/30 shadow-[0_0_15px_rgba(220,38,38,0.2)]'
               }`}
             >
               <Car size={14} />
@@ -147,7 +147,7 @@ const Navbar = () => {
                   className={`p-4 rounded-2xl flex items-center justify-center gap-3 font-black text-sm uppercase tracking-tighter border ${
                     isGermanSite 
                     ? 'bg-brand-primary/10 border-brand-primary/20 text-brand-primary' 
-                    : 'bg-blue-500/10 border-blue-500/20 text-blue-400'
+                    : 'bg-red-600/10 border-red-500/20 text-red-500 shadow-[0_0_15px_rgba(220,38,38,0.1)]'
                   }`}
                 >
                   <Car size={20} />

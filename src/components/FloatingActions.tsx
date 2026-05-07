@@ -1,9 +1,13 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Phone, MessageCircle } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 import { CONTACT_INFO } from '../constants';
 
 const FloatingActions = () => {
+  const location = useLocation();
+  const isGermanSite = location.pathname === '/german-cars';
+
   const trackConversion = (type: string) => {
     if (typeof window.gtag_report_conversion === 'function') {
       window.gtag_report_conversion();
@@ -44,9 +48,11 @@ const FloatingActions = () => {
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 1.2 }}
         whileHover={{ scale: 1.05 }}
-        className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-5 py-3 rounded-full shadow-2xl border border-white/10 group group-hover:bg-white/20 transition-all"
+        className="flex items-center gap-3 bg-slate-800 px-5 py-3 rounded-full shadow-2xl border border-white/10 group group-hover:bg-slate-700 transition-all"
       >
-        <div className="w-10 h-10 bg-brand-primary rounded-full flex items-center justify-center text-slate-950 shadow-[0_0_15px_rgba(20,184,166,0.5)] shrink-0">
+        <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${
+          isGermanSite ? 'bg-red-600 text-white shadow-[0_0_15px_rgba(220,38,38,0.5)]' : 'bg-brand-primary text-slate-950 shadow-[0_0_15px_rgba(20,184,166,0.5)]'
+        }`}>
           <Phone size={24} />
         </div>
         <span className="text-white font-black text-sm tracking-tight lowercase">{CONTACT_INFO.phone}</span>

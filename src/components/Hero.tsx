@@ -15,8 +15,8 @@ const Hero = () => {
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-brand-dark via-brand-dark/80 to-transparent"></div>
-        <div className="absolute inset-x-0 bottom-0 h-64 bg-linear-to-t from-brand-dark to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-brand-dark/60 via-brand-dark/20 to-transparent"></div>
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-brand-dark to-transparent"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -27,14 +27,14 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="inline-flex items-center gap-4 mb-8">
-              <div className="inline-flex items-center gap-2 bg-brand-primary/20 backdrop-blur-sm border border-brand-primary/30 text-brand-accent px-3 py-1 rounded uppercase tracking-[0.2em]">
+              <div className="inline-flex items-center gap-2 bg-brand-primary/20 border border-brand-primary/30 text-brand-accent px-3 py-1 rounded uppercase tracking-[0.2em]">
                 <Settings size={14} className="animate-spin-slow" />
                 <span className="text-[10px] font-black">مركز صيانة معتمد</span>
               </div>
               
               <Link 
                 to="/german-cars"
-                className="inline-flex items-center gap-2 bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 text-blue-400 px-3 py-1 rounded uppercase tracking-[0.1em] hover:bg-blue-500/40 transition-colors"
+                className="inline-flex items-center gap-2 bg-red-600/20 border border-red-500/30 text-red-500 px-3 py-1 rounded uppercase tracking-[0.1em] hover:bg-red-500/40 transition-colors shadow-[0_0_15px_rgba(220,38,38,0.2)]"
                 dir="rtl"
               >
                 <Car size={14} />
@@ -47,7 +47,7 @@ const Hero = () => {
               <span className="text-transparent bg-clip-text bg-linear-to-l from-brand-accent to-emerald-200">السيارات الصينية</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-slate-400 mb-10 leading-relaxed max-w-2xl font-medium" dir="rtl">
+            <p className="text-lg md:text-xl text-slate-200 mb-10 leading-relaxed max-w-2xl font-medium" dir="rtl">
               حلول تقنية متطورة لضمان أداء سيارتك. نستخدم أحدث أجهزة الفحص العالمية لسيارات شانجان، جيلي، هافال، وجميع الماركات العالمية.
             </p>
 
@@ -73,7 +73,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 href="#services"
-                className="bg-white/5 backdrop-blur-md border border-white/10 text-white px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black flex items-center justify-center gap-3 text-base md:text-lg hover:bg-white/10 transition-all"
+                className="bg-slate-800 border border-white/10 text-white px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black flex items-center justify-center gap-3 text-base md:text-lg hover:bg-slate-700 transition-all"
               >
                 استعرض خدماتنا
               </motion.a>

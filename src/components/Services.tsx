@@ -34,7 +34,7 @@ const Services = () => {
           <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">
             حلول الصيانة الشاملة
           </h2>
-          <p className="text-slate-400 text-lg leading-relaxed">
+          <p className="text-slate-200 text-lg leading-relaxed">
             نحن نوفر حلولاً هندسية دقيقة لكل عطل، مع التزام تام باستخدام القطع الأصلية والتقنيات التي توصي بها الشركات المصنعة.
           </p>
         </div>
@@ -63,7 +63,7 @@ const Services = () => {
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                      <div className="bg-slate-900/60 backdrop-blur-sm p-4 rounded-full">
+                      <div className="bg-slate-900/80 p-4 rounded-full">
                         <ZoomIn className="text-white" size={32} />
                       </div>
                     </div>
@@ -78,7 +78,7 @@ const Services = () => {
                   {service.title}
                 </h3>
                 
-                <p className="text-slate-400 text-sm leading-relaxed flex-1">
+                <p className="text-slate-200 text-sm leading-relaxed flex-1">
                   {service.description}
                 </p>
               </div>
@@ -100,7 +100,7 @@ const Services = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-brand-dark/95 backdrop-blur-xl"
+              className="absolute inset-0 bg-brand-dark"
               onClick={() => setSelectedImage(null)}
             />
             
@@ -118,7 +118,7 @@ const Services = () => {
               />
               <button 
                 onClick={() => setSelectedImage(null)}
-                className="absolute top-6 left-6 p-4 bg-white/10 hover:bg-white/20 text-white rounded-2xl backdrop-blur-md transition-all border border-white/10"
+                className="absolute top-6 left-6 p-4 bg-slate-900/80 text-white rounded-2xl transition-all border border-white/10"
               >
                 <X size={24} />
               </button>
