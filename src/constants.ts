@@ -14,7 +14,7 @@ import {
 export const CONTACT_INFO = {
   phone: '0508833046',
   whatsapp: '966508833046',
-  address: 'الرياض، صناعية أم الحمام، ورشة رقم 24',
+  address: 'الرياض، صناعية أم الحمام، ورشة رقم 61',
   email: 'info@masar-sa.com',
 };
 
