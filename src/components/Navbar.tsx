@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Phone, MessageCircle, Menu, X, ChevronLeft } from 'lucide-react';
+import { Phone, MessageCircle, Menu, X, ChevronLeft, Car } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import { NAV_LINKS, CONTACT_INFO } from '../constants';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isGermanSite = location.pathname === '/german-cars';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,14 +41,19 @@ const Navbar = () => {
           }`}
         >
           {/* Logo */}
-          <div className="flex items-center gap-3 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center text-white shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:rotate-12 transition-transform">
-              <span className="text-xl font-black">M</span>
+          <Link to="/" className="flex items-center gap-3 group cursor-pointer">
+            <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-white shadow-lg group-hover:rotate-12 transition-transform ${isGermanSite ? 'bg-blue-600 shadow-blue-500/50' : 'bg-brand-primary shadow-brand-primary/50'}`}>
+              <span className="text-xl font-black">{isGermanSite ? 'G' : 'M'}</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-2xl font-black tracking-tighter text-white">مســــار <span className="text-brand-accent font-light">MASAR</span></span>
+              <span className="text-2xl font-black tracking-tighter text-white">
+                {isGermanSite ? 'مســــار ' : 'مســــار '}
+                <span className={`${isGermanSite ? 'text-blue-400' : 'text-brand-accent'} font-light uppercase`}>
+                  {isGermanSite ? 'German' : 'MASAR'}
+                </span>
+              </span>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-8">
@@ -58,6 +66,19 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
+            
+            {/* Department Switcher */}
+            <Link 
+              to={isGermanSite ? '/' : '/german-cars'}
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-black uppercase tracking-tighter transition-all ${
+                isGermanSite 
+                ? 'bg-brand-primary/20 text-brand-primary border border-brand-primary/30' 
+                : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+              }`}
+            >
+              <Car size={14} />
+              {isGermanSite ? 'العودة للقسم العام' : 'قسم السيارات الألمانية'}
+            </Link>
           </div>
 
           {/* G-ADS Status Badge */}
@@ -120,6 +141,18 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="flex flex-col gap-3 mt-4">
+                <Link 
+                  to={isGermanSite ? '/' : '/german-cars'}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`p-4 rounded-2xl flex items-center justify-center gap-3 font-black text-sm uppercase tracking-tighter border ${
+                    isGermanSite 
+                    ? 'bg-brand-primary/10 border-brand-primary/20 text-brand-primary' 
+                    : 'bg-blue-500/10 border-blue-500/20 text-blue-400'
+                  }`}
+                >
+                  <Car size={20} />
+                  {isGermanSite ? 'العودة للقسم العام' : 'السيارات الألمانية'}
+                </Link>
                 <a 
                   href={`tel:${CONTACT_INFO.phone}`}
                   className="bg-gray-100 text-brand-secondary p-4 rounded-2xl flex items-center justify-center gap-3 font-bold"

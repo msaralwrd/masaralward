@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { MessageCircle, Settings, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { MessageCircle, Settings, ChevronDown, Car } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
 
 const Hero = () => {
@@ -11,7 +12,7 @@ const Hero = () => {
         <img 
           src="https://i.postimg.cc/ZqY0wRDW/Chat-GPT-Image-5-mayw-2026-08-22-34-m.png" 
           alt="Luxury Car Workshop" 
-          className="w-full h-full object-cover opacity-60 grayscale-[0.2]"
+          className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-linear-to-t from-brand-dark via-brand-dark/80 to-transparent"></div>
@@ -25,21 +26,32 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 bg-brand-primary/20 backdrop-blur-sm border border-brand-primary/30 text-brand-accent px-3 py-1 rounded uppercase tracking-[0.2em] mb-8">
-              <Settings size={14} className="animate-spin-slow" />
-              <span className="text-[10px] font-black">مركز صيانة معتمد</span>
+            <div className="inline-flex items-center gap-4 mb-8">
+              <div className="inline-flex items-center gap-2 bg-brand-primary/20 backdrop-blur-sm border border-brand-primary/30 text-brand-accent px-3 py-1 rounded uppercase tracking-[0.2em]">
+                <Settings size={14} className="animate-spin-slow" />
+                <span className="text-[10px] font-black">مركز صيانة معتمد</span>
+              </div>
+              
+              <Link 
+                to="/german-cars"
+                className="inline-flex items-center gap-2 bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 text-blue-400 px-3 py-1 rounded uppercase tracking-[0.1em] hover:bg-blue-500/40 transition-colors"
+                dir="rtl"
+              >
+                <Car size={14} />
+                <span className="text-[10px] font-black">قسم السيارات الألمانية</span>
+              </Link>
             </div>
             
-            <h1 className="text-4xl md:text-8xl font-black text-white mb-6 leading-[1.05] tracking-tighter">
+            <h1 className="text-4xl md:text-8xl font-black text-white mb-6 leading-[1.05] tracking-tighter" dir="rtl">
               الاحترافية في صيانة <br />
               <span className="text-transparent bg-clip-text bg-linear-to-l from-brand-accent to-emerald-200">السيارات الصينية</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-slate-400 mb-10 leading-relaxed max-w-2xl font-medium">
+            <p className="text-lg md:text-xl text-slate-400 mb-10 leading-relaxed max-w-2xl font-medium" dir="rtl">
               حلول تقنية متطورة لضمان أداء سيارتك. نستخدم أحدث أجهزة الفحص العالمية لسيارات شانجان، جيلي، هافال، وجميع الماركات العالمية.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-5 mb-16">
+            <div className="flex flex-col sm:flex-row gap-5 mb-16" dir="rtl">
               <motion.a
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -70,7 +82,7 @@ const Hero = () => {
             {/* Brand Grid Quick View */}
             <div className="max-w-md">
               <p className="text-[10px] text-slate-500 uppercase font-black tracking-[0.3em] mb-5 border-b border-white/5 pb-2">الماركات المتخصصة</p>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 opacity-60">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {['CHANGAN', 'GEELY', 'HAVAL', 'MG'].map(brand => (
                   <div key={brand} className="h-10 bg-white/5 rounded-lg flex items-center justify-center font-black text-[10px] border border-white/5 tracking-tighter">
                     {brand}

@@ -40,7 +40,7 @@ const Bodywork = () => {
                   <img 
                     src={sample.before} 
                     alt="Before Repair" 
-                    className="w-full h-[350px] object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+                    className="w-full h-[350px] object-cover transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute top-6 right-6 bg-red-500/90 backdrop-blur-md text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest">قبل</div>

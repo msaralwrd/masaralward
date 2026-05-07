@@ -24,7 +24,7 @@ const Brands = () => {
               whileInView={{ opacity: 1 }}
               transition={{ delay: idx * 0.1 }}
               whileHover={{ y: -10, scale: 1.05 }}
-              className="flex flex-col items-center gap-4 grayscale brightness-200 hover:grayscale-0 hover:brightness-100 transition-all duration-500 group"
+              className="flex flex-col items-center gap-4 transition-all duration-500 group"
             >
               <div className="bg-white/5 p-6 rounded-2xl border border-white/5 group-hover:border-brand-primary/30 group-hover:bg-white/10 transition-all">
                 <img 

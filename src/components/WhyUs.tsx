@@ -51,10 +51,9 @@ const WhyUs = () => {
                 <img 
                   src="https://i.postimg.cc/0N5rVQH6/Chat-GPT-Image-5-mayw-2026-08-20-54-m.png" 
                   alt="Technician at work" 
-                  className="w-full grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700"
+                  className="w-full transition-all duration-700"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-brand-dark/80 to-transparent"></div>
               </div>
               
               {/* Floating Stats Card - Hidden on mobile */}
