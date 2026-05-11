@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Phone, MessageCircle, Menu, X, ChevronLeft, Car } from 'lucide-react';
+import { Phone, MessageCircle, Menu, X, ChevronLeft, Car, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import { NAV_LINKS, CONTACT_INFO } from '../constants';
+import { NAV_LINKS, CONTACT_INFO, SERVICES } from '../constants';
+
+const GERMAN_SUB_SERVICES = [
+  { name: 'المحركات', href: '#german-engines' },
+  { name: 'الكهرباء', href: '#german-electrical' },
+  { name: 'التكييف', href: '#german-ac' },
+  { name: 'العفشة', href: '#german-suspension' },
+  { name: 'الزيوت', href: '#german-fluids' },
+  { name: 'البطاريات', href: '#german-battery' },
+];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const location = useLocation();
   const isGermanSite = location.pathname === '/german-cars';
 
@@ -26,6 +37,24 @@ const Navbar = () => {
         'event_label': type
       });
     }
+  };
+
+  const getServiceLinks = () => {
+    if (isGermanSite) {
+      return GERMAN_SUB_SERVICES;
+    }
+    const mainShortNames: Record<string, string> = {
+      'engines': 'المحركات',
+      'electrical': 'الكهرباء',
+      'ac': 'التكييف',
+      'suspension': 'العفشة',
+      'fluids': 'الزيوت',
+      'battery': 'البطاريات'
+    };
+    return SERVICES.map(s => ({
+      name: mainShortNames[s.id] || s.title.split(' ')[0],
+      href: `#service-${s.id}`
+    }));
   };
 
   return (
@@ -58,13 +87,47 @@ const Navbar = () => {
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
-              <a 
-                key={link.href}
-                href={link.href}
-                className="text-sm font-bold text-slate-100 hover:text-brand-accent transition-colors relative group"
+              <div 
+                key={link.href} 
+                className="relative group py-4"
+                onMouseEnter={() => link.name === 'الخدمات' && setActiveDropdown('services')}
+                onMouseLeave={() => setActiveDropdown(null)}
               >
-                {link.name}
-              </a>
+                <a 
+                  href={link.href}
+                  className="text-sm font-bold text-slate-100 hover:text-brand-accent transition-colors flex items-center gap-1"
+                >
+                  {link.name}
+                  {link.name === 'الخدمات' && <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />}
+                </a>
+
+                {/* Sub Menu */}
+                {link.name === 'الخدمات' && (
+                  <AnimatePresence>
+                    {activeDropdown === 'services' && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        className="absolute top-full right-0 mt-0 w-48 bg-slate-900 border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-50 p-2"
+                      >
+                        <div className="grid grid-cols-1 gap-1">
+                          {getServiceLinks().map((sub) => (
+                            <a 
+                              key={sub.href}
+                              href={sub.href}
+                              className="px-4 py-2 text-xs font-bold text-slate-300 hover:bg-white/5 hover:text-brand-accent rounded-xl transition-all flex items-center justify-between"
+                            >
+                              {sub.name}
+                              <ChevronLeft size={12} />
+                            </a>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                )}
+              </div>
             ))}
             
             {/* Department Switcher */}
@@ -128,17 +191,54 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -20 }}
             className="lg:hidden absolute top-full left-0 right-0 p-4"
           >
-            <div className="glass shadow-2xl rounded-3xl p-6 flex flex-col gap-4">
+            <div className="glass shadow-2xl rounded-3xl p-6 flex flex-col gap-4 max-h-[80vh] overflow-y-auto">
               {NAV_LINKS.map((link) => (
-                <a 
-                  key={link.href}
-                  href={link.href}
-                  className="text-lg font-bold text-brand-gray py-2 border-b border-gray-100 flex items-center justify-between"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.name}
-                  <ChevronLeft size={20} className="text-brand-primary" />
-                </a>
+                <div key={link.href} className="flex flex-col">
+                  {link.name === 'الخدمات' ? (
+                    <>
+                      <button 
+                        onClick={() => setMobileExpanded(mobileExpanded === 'services' ? null : 'services')}
+                        className="text-lg font-bold text-brand-gray py-2 border-b border-gray-100 flex items-center justify-between w-full"
+                      >
+                        {link.name}
+                        <ChevronDown size={20} className={`text-brand-primary transition-transform duration-300 ${mobileExpanded === 'services' ? 'rotate-180' : ''}`} />
+                      </button>
+                      <AnimatePresence>
+                        {mobileExpanded === 'services' && (
+                          <motion.div 
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="bg-white/5 rounded-xl mt-2 overflow-hidden"
+                          >
+                            <div className="p-2 grid grid-cols-2 gap-2">
+                              {getServiceLinks().map((sub) => (
+                                <a 
+                                  key={sub.href}
+                                  href={sub.href}
+                                  className="px-4 py-3 text-sm font-bold text-slate-300 hover:text-brand-accent flex items-center gap-2"
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                  <div className="w-1.5 h-1.5 bg-brand-primary rounded-full"></div>
+                                  {sub.name}
+                                </a>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </>
+                  ) : (
+                    <a 
+                      href={link.href}
+                      className="text-lg font-bold text-brand-gray py-2 border-b border-gray-100 flex items-center justify-between"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.name}
+                      <ChevronLeft size={20} className="text-brand-primary" />
+                    </a>
+                  )}
+                </div>
               ))}
               <div className="flex flex-col gap-3 mt-4">
                 <Link 

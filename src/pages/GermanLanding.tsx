@@ -16,36 +16,42 @@ const GERMAN_BRANDS = [
 
 const GERMAN_SERVICES = [
   {
+    id: 'german-engines',
     title: 'المحركات والجيربوكس',
     desc: 'صيانة وتوضيب محركات BMW, Mercedes, Porsche باستخدام قطع أصلية ومعايير المصنع الألماني العالية.',
     icon: <Settings className="text-red-500" size={32} />,
     image: 'https://i.postimg.cc/P5QPbZKh/Chat-GPT-Image-5-mayw-2026-08-24-35-m.png'
   },
   {
+    id: 'german-electrical',
     title: 'الكهرباء والبرمجة',
     desc: 'برمجة متقدمة لسيارات VAG و BMW و Mercedes وتشخيص دقيق باستخدام أحدث الأنظمة الأصلية.',
     icon: <Zap className="text-amber-500" size={32} />,
     image: 'https://i.postimg.cc/NjcKrb6C/Chat-GPT-Image-5-mayw-2026-08-26-11-m.png'
   },
   {
+    id: 'german-ac',
     title: 'التكييف والتبريد',
     desc: 'صيانة أنظمة التكييف المتقدمة للسيارات الألمانية وضمان ضغط الفريون المثالي وكفاءة الكمبروسر.',
     icon: <Wind className="text-red-500" size={32} />,
     image: 'https://i.postimg.cc/0yszJZYW/Chat-GPT-Image-5-mayw-2026-08-27-23-m.png'
   },
   {
+    id: 'german-suspension',
     title: 'العفشة والمساعدات',
     desc: 'صيانة المساعدات الهيدروليكية وأنظمة التعليق الذكية لسيارات الرفاهية الألمانية لضمان ثبات تام.',
     icon: <Wrench className="text-amber-500" size={32} />,
     image: 'https://i.postimg.cc/7Zk5TX3B/Chat-GPT-Image-5-mayw-2026-08-28-29-m.png'
   },
   {
+    id: 'german-fluids',
     title: 'تغيير الزيوت والسوائل',
     desc: 'تغيير زيوت وفلاتر بمواصفات الشركات الألمانية (LL-01, MB 229.5) لضمان عمر أطول للمحرك.',
     icon: <Droplets className="text-red-500" size={32} />,
     image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80&w=800'
   },
   {
+    id: 'german-battery',
     title: 'البطاريات والأنظمة',
     desc: 'تغيير وبرمجة بطاريات AGM الأصلية لضمان عمل أنظمة الاستهلاك الذكي في السيارات الألمانية.',
     icon: <Battery className="text-amber-500" size={32} />,
@@ -159,8 +165,8 @@ export default function GermanLanding() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" dir="rtl">
-              {GERMAN_SERVICES.map((s, i) => (
-                <div key={i} className="group bg-slate-900 border border-white/5 rounded-[2.5rem] overflow-hidden hover:border-red-500/50 transition-all duration-500 shadow-2xl">
+              {GERMAN_SERVICES.map((s) => (
+                <div key={s.id} id={s.id} className="group bg-slate-900 border border-white/5 rounded-[2.5rem] overflow-hidden hover:border-red-500/50 transition-all duration-500 shadow-2xl scroll-mt-32">
                   <div className="h-48 overflow-hidden relative">
                     <img 
                       src={s.image} 
